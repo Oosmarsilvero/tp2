@@ -41,13 +41,29 @@ fstream& operator >> (fstream &fs, Registro& reg)
 	fs.read(reinterpret_cast<char *>(&reg.valor), sizeof(reg.valor));
 	return fs;
 }
+	
+void pedirNumero(int& opcion){
+	
+	
+	cin>>opcion;
+	if(opcion < 4){
+		opcion = opcion;
+	}
+	else{
+		while (opcion > 4){		
+			cout<<"Por favor ingrese un numero de entre el 1 al 4 "<<endl;
+			cin>>opcion;
+		}
+	}
+	
+}
 
 int main() {
     int opcion;
 	cout<<"---MENU DE OPCIONES---"<<endl;
 	cout<<"1.Leer Datos"<<endl<<"2.Mostrar"<< endl <<"3.Despachar"<< endl <<"4.Salir"<<endl;
 	cout<<"Elija una opcion:"<<endl;
-	cin>>opcion;
+	pedirNumero(opcion);
 	
 	//while (opcion<4 && opcion>0);
 	//	*entra al switch*
